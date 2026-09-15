@@ -3,7 +3,7 @@ const $ = (s, root=document) => root.querySelector(s);
 const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 
 async function loadSite(){
-  const res = await fetch("data/site.json");
+  const res = await fetch("site.json");
   if(!res.ok) throw new Error("Impossible de charger le contenu.");
   return await res.json();
 }
