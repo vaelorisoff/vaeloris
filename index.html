@@ -1,250 +1,1232 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>VAELORIS — Official website</title>
+<title>VAELORIS — Official Website</title>
+<meta name="description" content="VAELORIS — Music beyond the visible.">
 
-    <meta name="description" content="VAELORIS — Official website. Music, videos and universe.">
-    <meta name="theme-color" content="#050505">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<style>
+
+/* =========================================================
+   VAELORIS — VISUAL SYSTEM
+   ========================================================= */
+
+:root {
+    --bg: #050507;
+    --bg-soft: #0b0b10;
+    --text: #f4f4f2;
+    --muted: #85858d;
+    --line: rgba(255,255,255,.11);
+    --glass: rgba(255,255,255,.055);
+    --accent: #d7d7ff;
+    --max: 1400px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================================================
+   NOISE
+   ========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .035;
+    z-index: 999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 26px 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    mix-blend-mode: normal;
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .28em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,.7);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: rgba(255,255,255,.55);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px white;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(5,5,7,.3) 40%, #050507 100%),
+        url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2400&q=90")
+        center/cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(160,160,255,.16), transparent 28%),
+        linear-gradient(90deg, rgba(0,0,0,.45), transparent 55%, rgba(0,0,0,.4));
+}
+
+.hero-content {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    padding: 0 5vw 6vh;
+}
+
+.hero-small {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,.65);
+    text-transform: uppercase;
+    letter-spacing: .28em;
+    font-size: 10px;
+}
+
+.hero-small::before {
+    content: "";
+    width: 38px;
+    height: 1px;
+    background: rgba(255,255,255,.5);
+}
+
+.hero-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(70px, 15vw, 230px);
+    font-weight: 600;
+    letter-spacing: -.075em;
+    line-height: .78;
+    margin-left: -.04em;
+}
+
+.hero-bottom {
+    margin-top: 55px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.hero-description {
+    max-width: 360px;
+    color: rgba(255,255,255,.62);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 15px 23px;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    transition: .3s;
+    backdrop-filter: blur(12px);
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+.btn-primary {
+    background: white;
+    color: black;
+}
+
+.scroll {
+    position: absolute;
+    right: 4vw;
+    bottom: 45px;
+    z-index: 3;
+    writing-mode: vertical-rl;
+    font-size: 9px;
+    letter-spacing: .3em;
+    color: rgba(255,255,255,.45);
+}
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+section {
+    position: relative;
+    padding: 150px 5vw;
+}
+
+.container {
+    max-width: var(--max);
+    margin: auto;
+}
+
+.section-number {
+    font-size: 9px;
+    letter-spacing: .3em;
+    color: #686870;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(45px, 8vw, 110px);
+    line-height: .9;
+    letter-spacing: -.055em;
+    font-weight: 500;
+}
+
+.section-intro {
+    max-width: 470px;
+    margin-top: 35px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+/* =========================================================
+   MUSIC
+   ========================================================= */
+
+.music {
+    background:
+        radial-gradient(circle at 75% 30%, rgba(130,130,255,.08), transparent 30%),
+        #050507;
+}
+
+.music-grid {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 8vw;
+    align-items: center;
+}
+
+.cover {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #111;
+}
+
+.cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+
+.cover:hover img {
+    transform: scale(1.06);
+}
+
+.cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.08), transparent 40%),
+        radial-gradient(circle at 50% 50%, transparent 20%, rgba(0,0,0,.5));
+}
+
+.cover-label {
+    position: absolute;
+    z-index: 2;
+    left: 30px;
+    top: 30px;
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+}
+
+.cover-center {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-center span {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(35px, 5vw, 70px);
+    letter-spacing: -.06em;
+}
+
+.music-info {
+    border-top: 1px solid var(--line);
+}
+
+.track-row {
+    padding: 27px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.track-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 13px;
+}
+
+.track-name {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+}
+
+.track-status {
+    font-size: 9px;
+    letter-spacing: .2em;
+    color: #777780;
+    text-transform: uppercase;
+}
+
+.track-meta {
+    color: #66666e;
+    font-size: 11px;
+}
+
+.platforms {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.platform {
+    border: 1px solid var(--line);
+    padding: 13px 17px;
+    font-size: 9px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.platform:hover {
+    border-color: white;
+    background: rgba(255,255,255,.06);
+}
+
+/* =========================================================
+   UNIVERSE
+   ========================================================= */
+
+.universe {
+    min-height: 850px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, #050507 5%, rgba(5,5,7,.72), rgba(5,5,7,.25)),
+        url("https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+}
+
+.universe-content {
+    max-width: 850px;
+}
+
+.universe .section-title {
+    font-size: clamp(55px, 10vw, 145px);
+}
+
+.universe-text {
+    margin-top: 50px;
+    max-width: 430px;
+    color: rgba(255,255,255,.6);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.signal {
+    margin-top: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+
+.signal-line {
+    width: 65px;
+    height: 1px;
+    background: white;
+}
+
+/* =========================================================
+   VIDEOS
+   ========================================================= */
+
+.videos {
+    background: #08080b;
+}
+
+.video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.video-link {
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,.4);
+    padding-bottom: 8px;
+}
+
+.video-grid {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.video-card {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #111;
+}
+
+.video-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: .72;
+    transition: 1s;
+}
+
+.video-card:hover img {
+    transform: scale(1.08);
+    opacity: .95;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.75));
+}
+
+.video-number {
+    font-size: 10px;
+    letter-spacing: .2em;
+}
+
+.play {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    backdrop-filter: blur(8px);
+}
+
+.video-name {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 25px;
+}
+
+/* =========================================================
+   QUOTE / MANIFESTO
+   ========================================================= */
+
+.manifesto {
+    padding: 190px 5vw;
+    text-align: center;
+}
+
+.manifesto-text {
+    max-width: 1050px;
+    margin: auto;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(40px, 7vw, 100px);
+    line-height: .98;
+    letter-spacing: -.055em;
+}
+
+.manifesto-text span {
+    color: #55555d;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact {
+    background:
+        radial-gradient(circle at 50% 100%, rgba(120,120,255,.08), transparent 40%),
+        #050507;
+}
+
+.contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10vw;
+}
+
+.contact-email {
+    display: inline-block;
+    margin-top: 60px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(20px, 3vw, 42px);
+    border-bottom: 1px solid rgba(255,255,255,.25);
+    padding-bottom: 12px;
+    transition: .3s;
+}
+
+.contact-email:hover {
+    border-color: white;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+}
+
+.social {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    color: #888890;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    transition: .3s;
+}
+
+.social:hover {
+    color: white;
+    padding-left: 10px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    padding: 35px 5vw;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #55555d;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.footer-logo {
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .25em;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    animation: reveal 1s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    animation: heroTitle 1.4s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+@keyframes heroTitle {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .nav {
+        padding: 20px 6vw;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-status {
+        font-size: 8px;
+    }
+
+    .hero {
+        min-height: 100svh;
+        background-position: 58% center;
+    }
+
+    .hero-content {
+        padding: 0 6vw 8vh;
+    }
+
+    .hero-title {
+        font-size: clamp(64px, 19vw, 130px);
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .hero-description {
+        max-width: 290px;
+    }
+
+    .scroll {
+        display: none;
+    }
+
+    section {
+        padding: 100px 6vw;
+    }
+
+    .music-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+        margin-top: 60px;
+    }
+
+    .cover {
+        max-width: 600px;
+    }
+
+    .universe {
+        min-height: 700px;
+        background-position: 65% center;
+    }
+
+    .video-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 55px;
+    }
+
+    .video-card {
+        aspect-ratio: 16 / 10;
+    }
+
+    .manifesto {
+        padding: 120px 6vw;
+    }
+
+    .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 70px;
+    }
+
+    .contact-email {
+        margin-top: 40px;
+    }
+
+    footer {
+        padding: 30px 6vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header class="navbar">
-        <a href="#home" class="logo">VAELORIS</a>
+<!-- =====================================================
+     NAV
+     ===================================================== -->
 
-        <nav>
-            <a href="#music">Music</a>
-            <a href="#universe">Universe</a>
-            <a href="#videos">Videos</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<nav class="nav">
 
+    <a href="#home" class="logo">VAELORIS</a>
 
-    <!-- HERO -->
-    <main>
+    <div class="nav-links">
+        <a href="#music">Music</a>
+        <a href="#universe">Universe</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+    </div>
 
-        <section id="home" class="hero">
+    <div class="nav-status">
+        <span class="status-dot"></span>
+        Official
+    </div>
 
-            <div class="hero-content">
+</nav>
 
-                <p class="eyebrow">OFFICIAL WEBSITE</p>
 
-                <h1>VAELORIS</h1>
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
-                <p class="hero-subtitle">
-                    MUSIC BEYOND THE VISIBLE.
-                </p>
+<header class="hero" id="home">
 
-                <div class="hero-buttons">
-                    <a href="#music" class="button button-primary">
-                        Discover the music
-                    </a>
+    <div class="hero-content">
 
-                    <a href="#videos" class="button button-secondary">
-                        Watch
-                    </a>
-                </div>
+        <div class="hero-small">
+            Official artist
+        </div>
 
-            </div>
-
-            <div class="scroll-indicator">
-                <span>SCROLL</span>
-                <div></div>
-            </div>
-
-        </section>
-
-
-        <!-- MUSIC -->
-        <section id="music" class="section music-section">
-
-            <div class="section-header">
-                <p class="eyebrow">01 / MUSIC</p>
-                <h2>THE SOUND</h2>
-                <p>
-                    Enter the world of VAELORIS.
-                </p>
-            </div>
-
-            <div class="release-card">
-
-                <div class="release-image">
-                    <span>VAELORIS</span>
-                </div>
-
-                <div class="release-info">
-
-                    <p class="release-label">LATEST RELEASE</p>
-
-                    <h3>COMING SOON</h3>
-
-                    <p>
-                        A new chapter is waiting.
-                    </p>
-
-                    <div class="platform-buttons">
-
-                        <a href="#" class="platform">
-                            Spotify
-                        </a>
-
-                        <a href="#" class="platform">
-                            YouTube
-                        </a>
-
-                        <a href="#" class="platform">
-                            Apple Music
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- UNIVERSE -->
-        <section id="universe" class="section universe-section">
-
-            <div class="section-header">
-                <p class="eyebrow">02 / UNIVERSE</p>
-
-                <h2>NOTHING IS<br>WHAT IT SEEMS.</h2>
-            </div>
-
-            <div class="universe-text">
-
-                <p>
-                    VAELORIS is more than music.
-                </p>
-
-                <p>
-                    A sound. A presence. A world slowly revealing itself.
-                </p>
-
-                <p>
-                    Follow the signal.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- VIDEOS -->
-        <section id="videos" class="section videos-section">
-
-            <div class="section-header">
-
-                <p class="eyebrow">03 / VIDEOS</p>
-
-                <h2>WATCH</h2>
-
-                <p>
-                    Visuals, music and fragments from the VAELORIS universe.
-                </p>
-
-            </div>
-
-            <div class="video-grid">
-
-                <a href="#" class="video-card">
-                    <div class="video-placeholder">
-                        <span>▶</span>
-                    </div>
-
-                    <div class="video-title">
-                        <span>01</span>
-                        <strong>FIRST SIGNAL</strong>
-                    </div>
-                </a>
-
-
-                <a href="#" class="video-card">
-                    <div class="video-placeholder">
-                        <span>▶</span>
-                    </div>
-
-                    <div class="video-title">
-                        <span>02</span>
-                        <strong>UNKNOWN</strong>
-                    </div>
-                </a>
-
-
-                <a href="#" class="video-card">
-                    <div class="video-placeholder">
-                        <span>▶</span>
-                    </div>
-
-                    <div class="video-title">
-                        <span>03</span>
-                        <strong>COMING SOON</strong>
-                    </div>
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-        <section id="contact" class="section contact-section">
-
-            <div class="section-header">
-
-                <p class="eyebrow">04 / CONTACT</p>
-
-                <h2>CONTACT<br>VAELORIS.</h2>
-
-                <p>
-                    Professional enquiries, collaborations and media.
-                </p>
-
-            </div>
-
-            <a href="mailto:contact@vaeloris.eu.com" class="contact-link">
-                contact@vaeloris.eu.com
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-logo">
+        <h1 class="hero-title">
             VAELORIS
+        </h1>
+
+        <div class="hero-bottom">
+
+            <p class="hero-description">
+                Music for the places that exist between reality,
+                memory and the unknown.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#music" class="btn btn-primary">
+                    Enter the world
+                </a>
+
+                <a href="#videos" class="btn">
+                    Watch
+                </a>
+            </div>
+
         </div>
 
-        <div class="footer-links">
+    </div>
 
-            <a href="#">YouTube</a>
-            <a href="#">Spotify</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
+    <div class="scroll">
+        Scroll to discover
+    </div>
 
+</header>
+
+
+<!-- =====================================================
+     MUSIC
+     ===================================================== -->
+
+<section class="music" id="music">
+
+    <div class="container">
+
+        <div class="section-number">
+            01 / Music
         </div>
 
-        <p>
-            © 2026 VAELORIS. All rights reserved.
+        <h2 class="section-title">
+            THE<br>SOUND.
+        </h2>
+
+        <p class="section-intro">
+            Enter the world of VAELORIS.
+            A collection of sounds, atmospheres and stories
+            slowly revealing themselves.
         </p>
 
-    </footer>
+
+        <div class="music-grid">
+
+            <div class="cover">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=90"
+                    alt="VAELORIS artwork"
+                >
+
+                <div class="cover-label">
+                    VAELORIS / 001
+                </div>
+
+                <div class="cover-center">
+                    <span>UNKNOWN</span>
+                </div>
+
+            </div>
 
 
-    <script src="script.js"></script>
+            <div class="music-info">
+
+                <div class="track-row">
+
+                    <div class="track-top">
+                        <div class="track-name">
+                            FIRST SIGNAL
+                        </div>
+
+                        <div class="track-status">
+                            Coming soon
+                        </div>
+                    </div>
+
+                    <div class="track-meta">
+                        VAELORIS — 2026
+                    </div>
+
+                </div>
+
+
+                <div class="track-row">
+
+                    <div class="track-top">
+                        <div class="track-name">
+                            UNKNOWN
+                        </div>
+
+                        <div class="track-status">
+                            Coming soon
+                        </div>
+                    </div>
+
+                    <div class="track-meta">
+                        VAELORIS — 2026
+                    </div>
+
+                </div>
+
+
+                <div class="track-row">
+
+                    <div class="track-top">
+                        <div class="track-name">
+                            SIGNAL II
+                        </div>
+
+                        <div class="track-status">
+                            Locked
+                        </div>
+                    </div>
+
+                    <div class="track-meta">
+                        VAELORIS — 2026
+                    </div>
+
+                </div>
+
+
+                <div class="platforms">
+
+                    <a class="platform" href="#" target="_blank">
+                        Spotify
+                    </a>
+
+                    <a class="platform" href="#" target="_blank">
+                        YouTube
+                    </a>
+
+                    <a class="platform" href="#" target="_blank">
+                        Apple Music
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     UNIVERSE
+     ===================================================== -->
+
+<section class="universe" id="universe">
+
+    <div class="container">
+
+        <div class="universe-content">
+
+            <div class="section-number">
+                02 / Universe
+            </div>
+
+            <h2 class="section-title">
+                NOTHING<br>
+                IS WHAT<br>
+                IT SEEMS.
+            </h2>
+
+            <p class="universe-text">
+                VAELORIS is more than music.
+                It is a presence. A signal. A world slowly
+                revealing itself through sound and imagery.
+                <br><br>
+                Some things are meant to remain unexplained.
+            </p>
+
+            <div class="signal">
+                <span class="signal-line"></span>
+                Follow the signal
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     VIDEOS
+     ===================================================== -->
+
+<section class="videos" id="videos">
+
+    <div class="container">
+
+        <div class="video-header">
+
+            <div>
+
+                <div class="section-number">
+                    03 / Visuals
+                </div>
+
+                <h2 class="section-title">
+                    WATCH.
+                </h2>
+
+            </div>
+
+            <a href="#" class="video-link">
+                YouTube channel →
+            </a>
+
+        </div>
+
+
+        <div class="video-grid">
+
+
+            <a href="#" class="video-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1534791547706-9e7d1b5f4c8c?auto=format&fit=crop&w=1200&q=85"
+                    alt="First Signal"
+                >
+
+                <div class="video-overlay">
+
+                    <div class="video-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <div class="play">
+                            ▶
+                        </div>
+
+                        <div class="video-name">
+                            FIRST SIGNAL
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="#" class="video-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=85"
+                    alt="Unknown"
+                >
+
+                <div class="video-overlay">
+
+                    <div class="video-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <div class="play">
+                            ▶
+                        </div>
+
+                        <div class="video-name">
+                            UNKNOWN
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="#" class="video-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85"
+                    alt="Coming Soon"
+                >
+
+                <div class="video-overlay">
+
+                    <div class="video-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <div class="play">
+                            ▶
+                        </div>
+
+                        <div class="video-name">
+                            COMING SOON
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MANIFESTO
+     ===================================================== -->
+
+<section class="manifesto">
+
+    <div class="manifesto-text">
+
+        <span>YOU DON'T</span><br>
+        FIND THE<br>
+        SIGNAL.<br>
+        <span>THE SIGNAL</span><br>
+        FINDS YOU.
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+     ===================================================== -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-inner">
+
+            <div>
+
+                <div class="section-number">
+                    04 / Contact
+                </div>
+
+                <h2 class="section-title">
+                    LET'S<br>
+                    CREATE.
+                </h2>
+
+                <a
+                    href="mailto:contact@vaeloris.eu.com"
+                    class="contact-email"
+                >
+                    contact@vaeloris.eu.com
+                </a>
+
+            </div>
+
+
+            <div class="socials">
+
+                <a href="#" class="social">
+                    <span>YouTube</span>
+                    <span>↗</span>
+                </a>
+
+                <a href="#" class="social">
+                    <span>Spotify</span>
+                    <span>↗</span>
+                </a>
+
+                <a href="#" class="social">
+                    <span>Instagram</span>
+                    <span>↗</span>
+                </a>
+
+                <a href="#" class="social">
+                    <span>TikTok</span>
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        VAELORIS
+    </div>
+
+    <div>
+        © 2026 VAELORIS
+    </div>
+
+    <div>
+        MUSIC BEYOND THE VISIBLE.
+    </div>
+
+</footer>
 
 </body>
 </html>
