@@ -1,0 +1,226 @@
+
+media:
+  - name: images
+    label: Images
+    input: media/images
+    output: /media/images
+  - name: audio
+    label: Audio
+    input: media/audio
+    output: /media/audio
+
+content:
+  - name: site
+    label: Site & identité
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - name: site
+        label: Identité
+        type: object
+        fields:
+          - name: name
+            label: Nom
+            type: string
+          - name: tagline
+            label: Signature
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: email
+            label: Email
+            type: string
+          - name: copyright
+            label: Copyright
+            type: string
+      - name: hero
+        label: Accueil
+        type: object
+        fields:
+          - name: eyebrow
+            label: Petit texte
+            type: string
+          - name: title
+            label: Grand titre
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: primaryLabel
+            label: Bouton principal
+            type: string
+          - name: primaryUrl
+            label: Lien principal
+            type: string
+          - name: secondaryLabel
+            label: Second bouton
+            type: string
+          - name: secondaryUrl
+            label: Lien secondaire
+            type: string
+          - name: background
+            label: Image de fond
+            type: image
+            options:
+              media: images
+              path: hero
+      - name: music
+        label: Musique
+        type: object
+        fields:
+          - name: eyebrow
+            label: Petit texte
+            type: string
+          - name: title
+            label: Titre
+            type: string
+          - name: intro
+            label: Introduction
+            type: text
+          - name: cover
+            label: Pochette
+            type: image
+            options:
+              media: images
+              path: music
+          - name: releaseCode
+            label: Code sortie
+            type: string
+          - name: tracks
+            label: Morceaux
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Titre
+                type: string
+              - name: status
+                label: Statut
+                type: string
+              - name: meta
+                label: Artiste / année
+                type: string
+              - name: audio
+                label: Fichier audio
+                type: file
+                options:
+                  media: audio
+                  categories: [audio]
+              - name: spotify
+                label: Lien Spotify
+                type: string
+              - name: youtube
+                label: Lien YouTube
+                type: string
+      - name: universe
+        label: Univers
+        type: object
+        fields:
+          - name: eyebrow
+            label: Petit texte
+            type: string
+          - name: title
+            label: Titre
+            type: string
+          - name: text
+            label: Texte
+            type: text
+          - name: signal
+            label: Signature
+            type: string
+          - name: background
+            label: Image de fond
+            type: image
+            options:
+              media: images
+              path: universe
+      - name: videos
+        label: Vidéos
+        type: object
+        fields:
+          - name: eyebrow
+            label: Petit texte
+            type: string
+          - name: title
+            label: Titre
+            type: string
+          - name: youtubeChannel
+            label: Chaîne YouTube
+            type: string
+          - name: items
+            label: Vidéos
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: number
+                label: Numéro
+                type: string
+              - name: title
+                label: Titre
+                type: string
+              - name: image
+                label: Miniature
+                type: image
+                options:
+                  media: images
+                  path: videos
+              - name: url
+                label: Lien vidéo
+                type: string
+      - name: manifesto
+        label: Manifeste
+        type: object
+        fields:
+          - name: line1
+            label: Ligne 1
+            type: string
+          - name: line2
+            label: Ligne 2
+            type: string
+          - name: line3
+            label: Ligne 3
+            type: string
+          - name: line4
+            label: Ligne 4
+            type: string
+          - name: line5
+            label: Ligne 5
+            type: string
+      - name: contact
+        label: Contact & réseaux
+        type: object
+        fields:
+          - name: eyebrow
+            label: Petit texte
+            type: string
+          - name: title
+            label: Titre
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: email
+            label: Email
+            type: string
+          - name: socials
+            label: Réseaux sociaux
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: Réseau
+                type: string
+              - name: url
+                label: URL
+                type: string

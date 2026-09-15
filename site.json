@@ -1,0 +1,115 @@
+{
+  "site": {
+    "name": "VAELORIS",
+    "tagline": "MUSIC BEYOND THE VISIBLE.",
+    "description": "Music for the places that exist between reality, memory and the unknown.",
+    "email": "contact@vaeloris.eu.com",
+    "copyright": "© 2026 VAELORIS"
+  },
+  "hero": {
+    "eyebrow": "OFFICIAL ARTIST",
+    "title": "VAELORIS",
+    "description": "Music for the places that exist between reality, memory and the unknown.",
+    "primaryLabel": "ENTER THE WORLD",
+    "primaryUrl": "music.html",
+    "secondaryLabel": "WATCH",
+    "secondaryUrl": "videos.html",
+    "background": "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2400&q=90"
+  },
+  "music": {
+    "eyebrow": "01 / MUSIC",
+    "title": "THE SOUND.",
+    "intro": "Enter the world of VAELORIS. A collection of sounds, atmospheres and stories slowly revealing themselves.",
+    "cover": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=90",
+    "releaseCode": "VAELORIS / 001",
+    "tracks": [
+      {
+        "title": "FIRST SIGNAL",
+        "status": "COMING SOON",
+        "meta": "VAELORIS — 2026",
+        "audio": "",
+        "spotify": "",
+        "youtube": ""
+      },
+      {
+        "title": "UNKNOWN",
+        "status": "COMING SOON",
+        "meta": "VAELORIS — 2026",
+        "audio": "",
+        "spotify": "",
+        "youtube": ""
+      },
+      {
+        "title": "SIGNAL II",
+        "status": "LOCKED",
+        "meta": "VAELORIS — 2026",
+        "audio": "",
+        "spotify": "",
+        "youtube": ""
+      }
+    ]
+  },
+  "universe": {
+    "eyebrow": "02 / UNIVERSE",
+    "title": "NOTHING IS WHAT IT SEEMS.",
+    "text": "VAELORIS is more than music. It is a presence. A signal. A world slowly revealing itself through sound and imagery. Some things are meant to remain unexplained.",
+    "signal": "FOLLOW THE SIGNAL",
+    "background": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=2200&q=90"
+  },
+  "videos": {
+    "eyebrow": "03 / VISUALS",
+    "title": "WATCH.",
+    "youtubeChannel": "#",
+    "items": [
+      {
+        "number": "01",
+        "title": "FIRST SIGNAL",
+        "image": "https://images.unsplash.com/photo-1534791547706-9e7d1b5f4c8c?auto=format&fit=crop&w=1200&q=85",
+        "url": "#"
+      },
+      {
+        "number": "02",
+        "title": "UNKNOWN",
+        "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=85",
+        "url": "#"
+      },
+      {
+        "number": "03",
+        "title": "COMING SOON",
+        "image": "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85",
+        "url": "#"
+      }
+    ]
+  },
+  "manifesto": {
+    "line1": "YOU DON'T",
+    "line2": "FIND THE",
+    "line3": "SIGNAL.",
+    "line4": "THE SIGNAL",
+    "line5": "FINDS YOU."
+  },
+  "contact": {
+    "eyebrow": "04 / CONTACT",
+    "title": "LET'S CREATE.",
+    "description": "Professional enquiries, collaborations and media.",
+    "email": "contact@vaeloris.eu.com",
+    "socials": [
+      {
+        "name": "YouTube",
+        "url": "#"
+      },
+      {
+        "name": "Spotify",
+        "url": "#"
+      },
+      {
+        "name": "Instagram",
+        "url": "#"
+      },
+      {
+        "name": "TikTok",
+        "url": "#"
+      }
+    ]
+  }
+}
